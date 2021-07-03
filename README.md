@@ -25,7 +25,7 @@ docker compose ps
 
 Check and follow logs:
 ```
-docker compose logs -f <service>
+docker compose logs -f [<service>]
 ```
 
 Execute a command in a running container:
