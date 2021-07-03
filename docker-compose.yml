@@ -7,9 +7,11 @@ services:
       - 8000:80
     volumes:
       - ./src:/var/www/lempstack
-      - ./docker/nginx:/etc/nginx/conf.d
+      - ./.docker/nginx:/etc/nginx/conf.d
+    depends_on:
+      - php-fpm
 
-  php:
+  php-fpm:
     image: php:7.4-fpm
     working_dir: /var/www/lempstack
     volumes:
