@@ -2,7 +2,16 @@ version: "3.8"
 
 services:
   nginx:
-    image: nginx:alpine
+    image: nginx:1.19-alpine
     ports:
-      - 80:80
+      - 8000:80
+    volumes:
+      - ./src:/var/www/lempstack
+      - ./docker/nginx:/etc/nginx/conf.d
+
+  php:
+    image: php:7.4-fpm
+    working_dir: /var/www/lempstack
+    volumes:
+      - ./src:/var/www/lempstack
 
