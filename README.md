@@ -43,6 +43,8 @@ Stop the containers:
 docker compose down -v
 ```
 
+If you want to add more php extensions, just modify `.docker/php/Dockerfile`.
+
 
 
 
