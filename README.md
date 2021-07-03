@@ -9,7 +9,7 @@ A simple multi-container docker LEMP stack
 # Usage
 
 The php-fpm is running on port `9000` and the mysql service on `3306`.
-Add your php files on `src/`. All docker related mounts is located at `.docker/` directory.
+Add your php files on `src/`. All docker related files is located at `.docker/` directory.
 
 Start the containers in the background:
 ```
