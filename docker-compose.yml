@@ -9,11 +9,25 @@ services:
       - ./src:/var/www/lempstack
       - ./.docker/nginx:/etc/nginx/conf.d
     depends_on:
-      - php-fpm
+      - php
 
   php:
-    image: php:7.4-fpm
+    build: ./.docker/php
     working_dir: /var/www/lempstack
     volumes:
       - ./src:/var/www/lempstack
+    depends_on:
+      - mysql
 
+  mysql:
+    image: mysql:5.7
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: lempstack
+    volumes:
+      - ./.docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+
+volumes:
+  mysqldata:
